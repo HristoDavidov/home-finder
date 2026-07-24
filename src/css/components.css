@@ -1,1 +1,56 @@
-/* Shared component styles go here. */
+.homefinder-navbar {
+	background-color: rgba(255, 255, 255, 0.94);
+	backdrop-filter: blur(12px);
+	border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+	box-shadow: 0 0.75rem 2rem rgba(15, 23, 42, 0.08);
+}
+
+.homefinder-navbar__brand {
+	color: #0f172a;
+	font-size: 1.1rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.homefinder-navbar .nav-link {
+	color: #334155;
+	font-weight: 600;
+	transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.homefinder-navbar .nav-link:hover,
+.homefinder-navbar .nav-link:focus-visible,
+.homefinder-navbar .nav-link.active {
+	color: #0f172a;
+}
+
+.homefinder-navbar .nav-link.active {
+	background-color: rgba(15, 23, 42, 0.08);
+	border-radius: 999px;
+}
+
+.nav-link-button {
+	background: none;
+	border: 0;
+}
+
+.navbar-toggler {
+	border-color: rgba(15, 23, 42, 0.14);
+}
+
+.navbar-toggler:focus {
+	box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.2);
+}
+
+@media (max-width: 991.98px) {
+	.homefinder-navbar .navbar-collapse {
+		margin-top: 1rem;
+		padding-top: 1rem;
+		border-top: 1px solid rgba(15, 23, 42, 0.08);
+	}
+
+	.homefinder-navbar .nav-link.active {
+		border-radius: 0.75rem;
+	}
+}
