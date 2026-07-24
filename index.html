@@ -6,8 +6,95 @@
     <title>Home Finder | Home</title>
   </head>
   <body>
-    <main class="container py-5">
-      <h1>Home</h1>
+    <main class="home-page pb-5">
+      <section class="home-hero py-5 py-lg-6">
+        <div class="container py-4 py-lg-5">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-12 col-lg-7">
+              <span class="home-eyebrow">Smart property discovery</span>
+              <h1 class="display-4 fw-bold mt-3">Find a place that feels right before you ever step inside.</h1>
+              <p class="lead text-secondary mt-3 home-hero__copy">
+                Browse new listings, compare locations, and track homes worth revisiting from one clean search experience.
+              </p>
+              <div class="d-flex flex-column flex-sm-row gap-3 mt-4">
+                <a class="btn btn-dark btn-lg px-4" href="/listings.html">Explore Properties</a>
+                <a class="btn btn-outline-dark btn-lg px-4" href="/contact.html">Talk to an Advisor</a>
+              </div>
+            </div>
+            <div class="col-12 col-lg-5">
+              <div class="home-hero-card">
+                <p class="text-uppercase small fw-semibold text-secondary mb-2">Why HomeFinder</p>
+                <h2 class="h3 mb-3">Fresh listings, clearer signals, faster decisions.</h2>
+                <div class="row g-3" id="statistics-cards">
+                  <div class="col-6">
+                    <article class="stat-card placeholder-glow">
+                      <p class="stat-card__value placeholder col-8"></p>
+                      <p class="stat-card__label placeholder col-6 mb-0"></p>
+                    </article>
+                  </div>
+                  <div class="col-6">
+                    <article class="stat-card placeholder-glow">
+                      <p class="stat-card__value placeholder col-8"></p>
+                      <p class="stat-card__label placeholder col-6 mb-0"></p>
+                    </article>
+                  </div>
+                  <div class="col-6">
+                    <article class="stat-card placeholder-glow">
+                      <p class="stat-card__value placeholder col-8"></p>
+                      <p class="stat-card__label placeholder col-6 mb-0"></p>
+                    </article>
+                  </div>
+                  <div class="col-6">
+                    <article class="stat-card placeholder-glow">
+                      <p class="stat-card__value placeholder col-8"></p>
+                      <p class="stat-card__label placeholder col-6 mb-0"></p>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-5">
+        <div class="container">
+          <div class="d-flex flex-column flex-md-row align-items-md-end justify-content-between gap-3 mb-4">
+            <div>
+              <span class="home-eyebrow">Latest properties</span>
+              <h2 class="h1 mt-2 mb-2">Recently added homes</h2>
+              <p class="text-secondary mb-0">The latest properties are loaded live from your Supabase listings data.</p>
+            </div>
+            <a class="btn btn-outline-dark" href="/listings.html">View all properties</a>
+          </div>
+
+          <div class="row g-4" id="latest-properties-list">
+            <div class="col-12">
+              <div class="alert alert-light border placeholder-glow mb-0" role="status">
+                <span class="placeholder col-4"></span>
+                <span class="placeholder col-7"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-4 py-lg-5">
+        <div class="container">
+          <div class="cta-banner row g-4 align-items-center">
+            <div class="col-12 col-lg-8">
+              <span class="home-eyebrow home-eyebrow--light">Take the next step</span>
+              <h2 class="display-6 fw-semibold mt-2 mb-3">Ready to shortlist, compare, and move faster?</h2>
+              <p class="mb-0 text-white-50">
+                Save favorites, review the newest listings, and stay focused on the homes that match your budget and location.
+              </p>
+            </div>
+            <div class="col-12 col-lg-4 text-lg-end">
+              <a class="btn btn-light btn-lg px-4" href="/favorites.html">Open Favorites</a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script type="module" src="/src/js/pages/home.js"></script>
