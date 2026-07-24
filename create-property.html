@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Finder | Create Property</title>
+  </head>
+  <body>
+    <main class="create-property-page pb-5">
+      <section class="py-5">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-xl-10">
+              <div class="create-property-hero mb-4">
+                <span class="create-property-eyebrow">List a new property</span>
+                <h1 class="display-5 fw-bold mt-2 mb-3">Create a polished listing in one flow.</h1>
+                <p class="lead text-secondary mb-0 create-property-hero__copy">
+                  Add the core property details, upload the main image, and publish the listing to your catalog.
+                </p>
+              </div>
+
+              <div id="create-property-feedback" class="mb-4"></div>
+
+              <form id="create-property-form" class="card border-0 shadow-sm create-property-form" novalidate>
+                <div class="card-body p-4 p-lg-5">
+                  <div class="row g-4">
+                    <div class="col-12">
+                      <label class="form-label fw-semibold" for="property-title">Title</label>
+                      <input id="property-title" name="title" type="text" class="form-control form-control-lg" maxlength="120" required />
+                      <div class="invalid-feedback">Title is required.</div>
+                    </div>
+
+                    <div class="col-12">
+                      <label class="form-label fw-semibold" for="property-description">Description</label>
+                      <textarea id="property-description" name="description" class="form-control" rows="5" maxlength="2000" required></textarea>
+                      <div class="invalid-feedback">Description is required.</div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                      <label class="form-label fw-semibold" for="property-price">Price</label>
+                      <div class="input-group input-group-lg">
+                        <span class="input-group-text">$</span>
+                        <input id="property-price" name="price" type="number" min="1" step="0.01" class="form-control" required />
+                      </div>
+                      <div class="invalid-feedback d-block" data-error-for="price"></div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                      <label class="form-label fw-semibold" for="property-type">Property Type</label>
+                      <select id="property-type" name="propertyType" class="form-select form-select-lg" required>
+                        <option value="">Select property type</option>
+                      </select>
+                      <div class="invalid-feedback">Property type is required.</div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                      <label class="form-label fw-semibold" for="property-city">City</label>
+                      <input id="property-city" name="city" type="text" class="form-control form-control-lg" maxlength="120" required />
+                      <div class="invalid-feedback">City is required.</div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                      <label class="form-label fw-semibold" for="property-address">Address</label>
+                      <input id="property-address" name="address" type="text" class="form-control form-control-lg" maxlength="180" required />
+                      <div class="invalid-feedback">Address is required.</div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                      <label class="form-label fw-semibold" for="property-area">Area</label>
+                      <div class="input-group input-group-lg">
+                        <input id="property-area" name="area" type="number" min="1" step="0.01" class="form-control" required />
+                        <span class="input-group-text">sq ft</span>
+                      </div>
+                      <div class="invalid-feedback d-block" data-error-for="area"></div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                      <label class="form-label fw-semibold" for="property-rooms">Rooms</label>
+                      <input id="property-rooms" name="rooms" type="number" min="1" step="1" class="form-control form-control-lg" required />
+                      <div class="invalid-feedback d-block" data-error-for="rooms"></div>
+                    </div>
+
+                    <div class="col-12">
+                      <label class="form-label fw-semibold" for="property-image">Image Upload</label>
+                      <input id="property-image" name="image" type="file" class="form-control form-control-lg" accept="image/*" required />
+                      <div class="invalid-feedback">A property image is required.</div>
+                      <div class="form-text">Upload a primary image that will be used in cards and the gallery.</div>
+                    </div>
+
+                    <div class="col-12 d-flex flex-column flex-sm-row gap-3 justify-content-between align-items-sm-center pt-2">
+                      <p class="text-secondary mb-0">Listings are created as published properties after the image upload succeeds.</p>
+                      <button id="create-property-submit" type="submit" class="btn btn-dark btn-lg px-4">Create Property</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/js/pages/create-property.js"></script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+.create-property-page {
+  color: #0f172a;
+}
+
+.create-property-hero {
+  max-width: 46rem;
+}
+
+.create-property-eyebrow {
+  display: inline-block;
+  color: #0f766e;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.create-property-hero__copy {
+  max-width: 38rem;
+}
+
+.create-property-form {
+  border-radius: 1.5rem;
+}
+
+.create-property-form .form-control,
+.create-property-form .form-select,
+.create-property-form .input-group-text {
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+.create-property-form .form-control:focus,
+.create-property-form .form-select:focus {
+  border-color: rgba(15, 23, 42, 0.35);
+  box-shadow: 0 0 0 0.25rem rgba(15, 23, 42, 0.08);
+}
+
+@media (max-width: 767.98px) {
+  .create-property-form {
+    border-radius: 1.2rem;
+  }
+}

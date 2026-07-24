@@ -1,6 +1,10 @@
 import { supabaseClient } from "../config/supabase.js";
 
 const PROPERTIES_TABLE = "properties";
+const PROPERTY_TYPES_TABLE = "property_types";
+const LISTING_STATUSES_TABLE = "listing_statuses";
+const LOCATIONS_TABLE = "locations";
+const PROPERTY_IMAGES_TABLE = "property_images";
 const DEFAULT_SELECT = `
   property_id,
   owner_user_id,
@@ -34,6 +38,16 @@ const DEFAULT_SELECT = `
     amenity_id,
     amenities (*)
   )
+`;
+
+const PROPERTY_TYPE_SELECT = `
+  property_type_id,
+  name
+`;
+
+const LISTING_STATUS_SELECT = `
+  status_id,
+  name
 `;
 
 function getClientOrThrow() {
@@ -72,6 +86,109 @@ function createPropertiesQuery(client) {
   return client
     .from(PROPERTIES_TABLE)
     .select(DEFAULT_SELECT);
+}
+
+async function getAuthenticatedUserIdOrThrow(client) {
+  const { data, error } = await client.auth.getUser();
+
+  if (error) {
+    throw error;
+  }
+
+  const userId = data?.user?.id;
+
+  if (!userId) {
+    throw new Error("You must be logged in to manage properties.");
+  }
+
+  return userId;
+}
+
+export async function getPropertyTypes() {
+  try {
+    const client = getClientOrThrow();
+    const { data, error } = await client
+      .from(PROPERTY_TYPES_TABLE)
+      .select(PROPERTY_TYPE_SELECT)
+      .order("name", { ascending: true });
+
+    if (error) {
+      throw error;
+    }
+
+    return buildSuccessResult(data || []);
+  } catch (error) {
+    return buildErrorResult("Fetch property types", error, []);
+  }
+}
+
+export async function getListingStatusByName(statusName) {
+  try {
+    if (!statusName) {
+      throw new Error("Status name is required.");
+    }
+
+    const client = getClientOrThrow();
+    const { data, error } = await client
+      .from(LISTING_STATUSES_TABLE)
+      .select(LISTING_STATUS_SELECT)
+      .eq("name", statusName)
+      .single();
+
+    if (error) {
+      throw error;
+    }
+
+    return buildSuccessResult(data || null);
+  } catch (error) {
+    return buildErrorResult("Fetch listing status", error, null);
+  }
+}
+
+export async function createLocation(locationData) {
+  try {
+    if (!locationData || typeof locationData !== "object") {
+      throw new Error("Location data is required.");
+    }
+
+    const client = getClientOrThrow();
+    const { data, error } = await client
+      .from(LOCATIONS_TABLE)
+      .insert(locationData)
+      .select("*")
+      .single();
+
+    if (error) {
+      throw error;
+    }
+
+    return buildSuccessResult(data || null);
+  } catch (error) {
+    return buildErrorResult("Create location", error, null);
+  }
+}
+
+export async function createPropertyImage(propertyImageData) {
+  try {
+    if (!propertyImageData || typeof propertyImageData !== "object") {
+      throw new Error("Property image data is required.");
+    }
+
+    const client = getClientOrThrow();
+    const { data, error } = await client
+      .from(PROPERTY_IMAGES_TABLE)
+      .insert(propertyImageData)
+      .select("*")
+      .single();
+
+    if (error) {
+      throw error;
+    }
+
+    return buildSuccessResult(data || null);
+  } catch (error) {
+    return buildErrorResult("Create property image", error, null);
+  }
 }
 
 export async function getAllProperties() {
@@ -118,9 +235,13 @@ export async function createProperty(propertyData) {
     }
 
     const client = getClientOrThrow();
+    const ownerUserId = propertyData.owner_user_id || await getAuthenticatedUserIdOrThrow(client);
     const { data, error } = await client
       .from(PROPERTIES_TABLE)
-      .insert(propertyData)
+      .insert({
+        ...propertyData,
+        owner_user_id: ownerUserId
+      })
       .select(DEFAULT_SELECT)
       .single();
 
