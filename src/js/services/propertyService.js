@@ -20,6 +20,12 @@ const DEFAULT_SELECT = `
   created_at,
   updated_at,
   published_at,
+  profiles!properties_owner_user_id_fkey (
+    user_id,
+    display_name,
+    phone,
+    avatar_url
+  ),
   locations (*),
   property_types (*),
   listing_statuses (*),

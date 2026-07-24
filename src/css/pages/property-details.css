@@ -1,1 +1,119 @@
-/* Property details page styles go here. */
+.property-details-page {
+	color: #0f172a;
+}
+
+.details-gallery,
+.details-summary,
+.fact-tile,
+.owner-card,
+.map-placeholder {
+	border-radius: 1.5rem;
+}
+
+.details-gallery__image {
+	display: block;
+	width: 100%;
+	height: min(68vw, 34rem);
+	object-fit: cover;
+	background: #e2e8f0;
+}
+
+.details-gallery__thumbs {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+	gap: 0.75rem;
+	background: #fff;
+}
+
+.details-gallery__thumb {
+	padding: 0;
+	border: 2px solid transparent;
+	border-radius: 1rem;
+	overflow: hidden;
+	background: #f8fafc;
+}
+
+.details-gallery__thumb.is-active {
+	border-color: #0f172a;
+}
+
+.details-gallery__thumb img {
+	display: block;
+	width: 100%;
+	height: 5rem;
+	object-fit: cover;
+}
+
+.details-badge {
+	color: #0f172a;
+	font-weight: 600;
+}
+
+.details-price {
+	font-size: clamp(2rem, 4vw, 2.8rem);
+	font-weight: 700;
+	line-height: 1;
+}
+
+.fact-tile {
+	height: 100%;
+	padding: 1rem;
+	border: 1px solid rgba(148, 163, 184, 0.18);
+	background: #f8fafc;
+}
+
+.fact-tile__label {
+	color: #64748b;
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.fact-tile__value {
+	color: #0f172a;
+	font-size: 1.05rem;
+	font-weight: 600;
+}
+
+.owner-card__avatar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 4rem;
+	height: 4rem;
+	flex-shrink: 0;
+	border-radius: 50%;
+	background: linear-gradient(135deg, #f97316 0%, #fb7185 100%);
+	color: #fff;
+	font-size: 1.25rem;
+	font-weight: 700;
+	overflow: hidden;
+}
+
+.owner-card__avatar-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.map-placeholder {
+	min-height: 14rem;
+	padding: 1.5rem;
+	border: 1px dashed rgba(15, 23, 42, 0.18);
+	background:
+		linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(249, 115, 22, 0.1)),
+		#f8fafc;
+}
+
+.map-placeholder__title {
+	color: #0f172a;
+	font-size: 1.15rem;
+	font-weight: 700;
+}
+
+@media (max-width: 767.98px) {
+	.details-gallery__image {
+		height: 18rem;
+	}
+}
