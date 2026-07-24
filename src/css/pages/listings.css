@@ -1,1 +1,78 @@
-/* Listings page styles go here. */
+.properties-page {
+	color: #0f172a;
+}
+
+.properties-hero {
+	position: relative;
+}
+
+.properties-hero::after {
+	content: "";
+	position: absolute;
+	inset: 0 0 auto auto;
+	width: 18rem;
+	height: 18rem;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgba(249, 115, 22, 0.18) 0%, rgba(249, 115, 22, 0) 70%);
+	pointer-events: none;
+}
+
+.properties-eyebrow {
+	display: inline-block;
+	color: #9a3412;
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+}
+
+.properties-hero__copy {
+	max-width: 42rem;
+}
+
+.properties-summary-card,
+.catalog-toolbar {
+	padding: 1.5rem;
+	border: 1px solid rgba(15, 23, 42, 0.08);
+	border-radius: 1.5rem;
+	background: rgba(255, 255, 255, 0.84);
+	box-shadow: 0 1rem 2.5rem rgba(15, 23, 42, 0.06);
+}
+
+.catalog-card {
+	border-radius: 1.4rem;
+}
+
+.catalog-card__image {
+	display: block;
+	width: 100%;
+	height: 250px;
+	object-fit: cover;
+	background: #e2e8f0;
+}
+
+.catalog-card__badge {
+	color: #0f172a;
+	font-weight: 600;
+}
+
+.catalog-card__price {
+	color: #0f172a;
+	font-size: 1.05rem;
+}
+
+.catalog-card__area {
+	letter-spacing: 0.08em;
+}
+
+@media (max-width: 767.98px) {
+	.properties-summary-card,
+	.catalog-toolbar {
+		padding: 1.15rem;
+		border-radius: 1.2rem;
+	}
+
+	.catalog-card__image {
+		height: 220px;
+	}
+}

@@ -6,8 +6,78 @@
     <title>Home Finder | Listings</title>
   </head>
   <body>
-    <main class="container py-5">
-      <h1>Listings</h1>
+    <main class="properties-page pb-5">
+      <section class="properties-hero py-5">
+        <div class="container py-3 py-lg-4">
+          <div class="row g-4 align-items-end justify-content-between">
+            <div class="col-12 col-lg-7">
+              <span class="properties-eyebrow">Properties catalog</span>
+              <h1 class="display-5 fw-bold mt-2 mb-3">Browse homes by city, type, and budget.</h1>
+              <p class="lead text-secondary mb-0 properties-hero__copy">
+                Explore available listings with live data from Supabase and narrow the results with quick filters.
+              </p>
+            </div>
+            <div class="col-12 col-lg-4">
+              <div class="properties-summary-card">
+                <p class="small text-uppercase fw-semibold text-secondary mb-2">Live inventory</p>
+                <h2 class="h3 mb-2" id="properties-total-count">0 properties</h2>
+                <p class="text-secondary mb-0" id="properties-active-filters">Loading filters...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pb-4">
+        <div class="container">
+          <div class="catalog-toolbar">
+            <div class="row g-3 align-items-end">
+              <div class="col-12 col-lg-4">
+                <label class="form-label fw-semibold" for="search-input">Search</label>
+                <div class="input-group input-group-lg">
+                  <span class="input-group-text">Search</span>
+                  <input
+                    id="search-input"
+                    type="search"
+                    class="form-control"
+                    placeholder="Search by title, city, or area"
+                  />
+                </div>
+              </div>
+              <div class="col-12 col-md-4 col-lg-3">
+                <label class="form-label fw-semibold" for="city-filter">City</label>
+                <select id="city-filter" class="form-select form-select-lg">
+                  <option value="">All cities</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-4 col-lg-3">
+                <label class="form-label fw-semibold" for="type-filter">Property type</label>
+                <select id="type-filter" class="form-select form-select-lg">
+                  <option value="">All types</option>
+                </select>
+              </div>
+              <div class="col-12 col-md-4 col-lg-2">
+                <label class="form-label fw-semibold" for="price-sort">Sort by price</label>
+                <select id="price-sort" class="form-select form-select-lg">
+                  <option value="newest">Newest</option>
+                  <option value="price-asc">Lowest price</option>
+                  <option value="price-desc">Highest price</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="row g-4" id="properties-catalog-list">
+            <div class="col-12">
+              <div class="alert alert-light border mb-0" role="status">Loading properties...</div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <script type="module" src="/src/js/pages/listings.js"></script>
